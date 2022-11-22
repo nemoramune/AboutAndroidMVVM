@@ -8,9 +8,11 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import com.nemoramune.aboutmvvm.databinding.FragmentTopBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
+@AndroidEntryPoint
 class TopFragment: Fragment(R.layout.fragment_top) {
 
     private val viewModel: TopViewModel by viewModels()
