@@ -8,7 +8,9 @@ class TopViewModel: ViewModel() {
     private val mutableImageUrlLiveData = MutableLiveData<String>()
     val imageUrlLiveData: LiveData<String> = mutableImageUrlLiveData
 
+    private val foodRepository = FoodRepository()
+
     fun fetch() {
-        mutableImageUrlLiveData.value = "https://foodish-api.herokuapp.com/images/pizza/pizza50.jpg"
+        mutableImageUrlLiveData.value = foodRepository.getRandomImageUrl()
     }
 }
