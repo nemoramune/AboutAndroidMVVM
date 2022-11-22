@@ -8,13 +8,18 @@ import com.bumptech.glide.Glide
 import com.nemoramune.aboutmvvm.databinding.FragmentTopBinding
 
 class TopFragment: Fragment(R.layout.fragment_top) {
+
+    private val viewModel: TopViewModel by viewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentTopBinding.bind(view)
         val imageView = binding.imageView
-        val imageUrl = "https://foodish-api.herokuapp.com/images/pizza/pizza50.jpg"
-        Glide.with(imageView)
-            .load(imageUrl)
-            .into(imageView)
+        viewModel.imageUrlLiveData.observe(viewLifecycleOwner) { imageUrl ->
+            Glide.with(imageView)
+                .load(imageUrl)
+                .into(imageView)
+        }
+        viewModel.fetch()
     }
 }
