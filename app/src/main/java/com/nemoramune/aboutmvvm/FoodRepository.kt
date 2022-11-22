@@ -1,5 +1,7 @@
 package com.nemoramune.aboutmvvm
 
-class FoodRepository {
+import javax.inject.Inject
+
+class FoodRepository @Inject constructor() {
     fun getRandomImageUrl() = "https://foodish-api.herokuapp.com/images/pizza/pizza50.jpg"
 }
