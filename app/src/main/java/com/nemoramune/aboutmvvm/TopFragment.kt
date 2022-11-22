@@ -7,4 +7,14 @@ import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.nemoramune.aboutmvvm.databinding.FragmentTopBinding
 
-class TopFragment: Fragment(R.layout.fragment_top)
+class TopFragment: Fragment(R.layout.fragment_top) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val binding = FragmentTopBinding.bind(view)
+        val imageView = binding.imageView
+        val imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+        Glide.with(imageView)
+            .load(imageUrl)
+            .into(imageView)
+    }
+}
