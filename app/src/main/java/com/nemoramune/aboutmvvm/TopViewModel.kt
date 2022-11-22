@@ -8,7 +8,9 @@ class TopViewModel: ViewModel() {
     private val mutableImageUrlLiveData = MutableLiveData<String>()
     val imageUrlLiveData: LiveData<String> = mutableImageUrlLiveData
 
+    private val pokemonRepository = PokemonRepository()
+
     fun fetch() {
-        mutableImageUrlLiveData.value = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+        mutableImageUrlLiveData.value = pokemonRepository.getRandomImageUrl()
     }
 }
