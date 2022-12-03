@@ -23,5 +23,9 @@ class TopFragment: Fragment(R.layout.fragment_top) {
                 .into(imageView)
         }
         viewModel.fetch()
+
+        binding.button.setOnClickListener {
+            viewModel.fetch()
+        }
     }
 }
