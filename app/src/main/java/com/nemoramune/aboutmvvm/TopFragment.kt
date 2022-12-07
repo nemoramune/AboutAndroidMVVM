@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.nemoramune.aboutmvvm.databinding.FragmentTopBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TopFragment: Fragment(R.layout.fragment_top) {
 
     private val viewModel: TopViewModel by viewModels()
