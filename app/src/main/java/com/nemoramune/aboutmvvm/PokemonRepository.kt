@@ -1,7 +1,10 @@
 package com.nemoramune.aboutmvvm
 
+import kotlin.random.Random
+
 class PokemonRepository {
     suspend fun getRandomImageUrl(): String {
-        return ApiClient.pokemonApi.getPokemonData(1).sprites.frontDefault
+        val randomId = Random.nextInt(1, 151)
+        return ApiClient.pokemonApi.getPokemonData(randomId).sprites.frontDefault
     }
 }
