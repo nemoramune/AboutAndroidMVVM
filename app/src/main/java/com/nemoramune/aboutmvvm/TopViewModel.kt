@@ -3,6 +3,8 @@ package com.nemoramune.aboutmvvm
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 
 class TopViewModel: ViewModel() {
     private val mutableImageUrlLiveData = MutableLiveData<String>()
@@ -11,6 +13,8 @@ class TopViewModel: ViewModel() {
     private val pokemonRepository = PokemonRepository()
 
     fun fetch() {
-        mutableImageUrlLiveData.value = pokemonRepository.getRandomImageUrl()
+        viewModelScope.launch {
+            mutableImageUrlLiveData.value = pokemonRepository.getRandomImageUrl()
+        }
     }
 }
