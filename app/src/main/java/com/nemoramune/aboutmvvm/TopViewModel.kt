@@ -14,7 +14,8 @@ class TopViewModel: ViewModel() {
 
     fun fetch() {
         viewModelScope.launch {
-            mutableImageUrlLiveData.value = pokemonRepository.getRandomImageUrl()
+             pokemonRepository.getRandomImageUrl()
+                 .onSuccess { mutableImageUrlLiveData.value = it }
         }
     }
 }
