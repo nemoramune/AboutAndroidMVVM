@@ -3,8 +3,8 @@ package com.nemoramune.aboutmvvm
 import kotlin.random.Random
 
 class PokemonRepository {
-    suspend fun getRandomImageUrl(): String {
+    suspend fun getRandomImageUrl(): Result<String> = runCatching {
         val randomId = Random.nextInt(1, 151)
-        return ApiClient.pokemonApi.getPokemonData(randomId).sprites.frontDefault
+        ApiClient.pokemonApi.getPokemonData(randomId).sprites.frontDefault
     }
 }
